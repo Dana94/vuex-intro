@@ -9,6 +9,9 @@
           <Button color="blue" />
           <Button color="purple" />
         </div>
+        <ul>
+          <li v-for="color in colors" :key=color>{{color}}</li>
+        </ul>
       </header>
   </div>
 </template>
@@ -23,7 +26,7 @@ export default {
   },
   computed: {
     colors() {
-      return [];
+      return this.$store.getters.getColors;
     }
   }
 }
