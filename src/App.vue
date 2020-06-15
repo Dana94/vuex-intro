@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header className="app-header">
+        <div className="app-buttons">
+          <Button color="red" />
+          <Button color="orange" />
+          <Button color="yellow" />
+          <Button color="green" />
+          <Button color="blue" />
+          <Button color="purple" />
+        </div>
+      </header>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Button from './components/Button.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Button
+  },
+  computed: {
+    colors() {
+      return [];
+    }
   }
 }
 </script>
@@ -24,5 +37,21 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.app-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.app-buttons {
+  position: absolute;
+  top: 5rem;
 }
 </style>
