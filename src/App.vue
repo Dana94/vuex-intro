@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <header className="app-header">
-        <div className="app-buttons">
-          <Button color="red" />
-          <Button color="orange" />
-          <Button color="yellow" />
-          <Button color="green" />
-          <Button color="blue" />
-          <Button color="purple" />
-        </div>
-        <ul>
-          <li v-for="color in colors" :key=color>{{color}}</li>
-        </ul>
-      </header>
+    <header class="app-header">
+      <div class="app-buttons">
+        <Button color="red" />
+        <Button color="orange" />
+        <Button color="yellow" />
+        <Button color="green" />
+        <Button color="blue" />
+        <Button color="purple" />
+      </div>
+      <ul>
+        <li v-for="color in getColors" :key="color">{{color}}</li>
+      </ul>
+    </header>
   </div>
 </template>
 
 <script>
 import Button from './components/Button.vue'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -25,9 +26,14 @@ export default {
     Button
   },
   computed: {
-    colors() {
-      return this.$store.getters.getColors;
-    }
+    // first method with dispatch
+    // colors() {
+    //   return this.$store.getters.getColors;
+    // }
+    // second method with mapGetters
+    ...mapGetters([
+      'getColors'
+    ]),
   }
 }
 </script>
